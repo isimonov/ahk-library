@@ -54,8 +54,8 @@ GoToDesktopNumber(num) {
 
 GoToNextDesktop() {
     currentDesktop := DllCall(GetCurrentDesktopNumberProc, "UInt")
-    total := DllCall(GetDesktopCountProc, "UInt") - 1
-    if (currentDesktop = total) {
+    lastDesktop := DllCall(GetDesktopCountProc, "UInt") - 1
+    if (currentDesktop = lastDesktop) {
         GoToDesktopNumber(0)
     } else {
         GoToDesktopNumber(currentDesktop + 1)    
@@ -64,9 +64,9 @@ GoToNextDesktop() {
  
 GoToPrevDesktop() {
     currentDesktop := DllCall(GetCurrentDesktopNumberProc, "UInt")
-    total := DllCall(GetDesktopCountProc, "UInt") - 1
+    lastDesktop := DllCall(GetDesktopCountProc, "UInt") - 1
     if (currentDesktop = 0) {
-        GoToDesktopNumber(total)
+        GoToDesktopNumber(lastDesktop)
     } else {
         GoToDesktopNumber(currentDesktop - 1)      
     }
