@@ -78,8 +78,12 @@ MButton:: {
     MouseGetPos(&xpos, &ypos)
     if (xpos > monitorWidth/2) {
         GoToNextDesktop()
+        ;Send("#^{Right}")
+        ;Sleep(100)
+        ;Send("#^{Right}")
     } else {
         GoToPrevDesktop()
+        ;Send("#^{Left}")
     }
 }
 
